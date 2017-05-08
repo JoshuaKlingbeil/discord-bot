@@ -15,6 +15,10 @@ class Command
   def run
     send(@method) if allowed_methods.include? @method
   end
+
+  def is_admin?
+    @config['admins'].include? @event.user.id
+  end
 end
 
 # Load all of our commands

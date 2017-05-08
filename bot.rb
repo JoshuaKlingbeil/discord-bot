@@ -1,6 +1,7 @@
 require 'discordrb'
 require 'yaml'
 require 'minestat'
+require 'httparty'
 require './commands/command.rb'
 
 config = YAML.load_file('config.yml')
@@ -34,6 +35,10 @@ end
 # Clean up any flipped tables
 bot.message(content: '(╯°□°）╯︵ ┻━┻') do |event|
   event.respond '┬─┬﻿ ノ( ゜-゜ノ)'
+end
+
+bot.message(content: 'what\'s my user id?') do |event|
+  event.respond event.user.id
 end
 
 puts 'Bot is alive.'
